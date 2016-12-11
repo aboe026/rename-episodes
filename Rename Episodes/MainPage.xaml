@@ -7,7 +7,146 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" BorderBrush="Black">
 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="180"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Name="title"
+                   Grid.Row="0"
+                   Grid.Column="0"
+                   Grid.ColumnSpan="2"
+                   Text="Episode Renamer"
+                   FontSize="36"
+                   TextAlignment="Center"/>
+
+        <TextBlock Name="directoryLabel"
+                   Grid.Row="1"
+                   Grid.Column="0"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,10,0"
+                   Text="Episodes"
+                   FontSize="30"
+                   TextAlignment="Right" />
+
+        <RelativePanel Grid.Row="1"
+                       Grid.Column="1">
+
+            <TextBox Name="directory"
+                     RelativePanel.AlignLeftWithPanel="True"
+                     RelativePanel.AlignRightWith="browse"
+                     HorizontalAlignment="Stretch"
+                     Margin="10,5,100,5"
+                     FontSize="20"
+                     TextAlignment="Left"
+                     BorderBrush="Black"
+                     BorderThickness="1"
+                     IsReadOnly="True"
+                     PointerReleased="browse_Click"/>
+
+            <Button Name="browse"
+                    RelativePanel.AlignRightWithPanel="True"
+                    Margin="10,8,10,0"
+                    Content="Browse..."
+                    FontSize="16"
+                    Click="browse_Click" />
+        </RelativePanel>
+
+        <TextBlock Name="showLabel"
+                   Grid.Row="2"
+                   Grid.Column="0"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,10,0"
+                   Text="Show Name"
+                   FontSize="30"
+                   TextAlignment="Right" />
+
+        <TextBox Name="show"
+                 Grid.Row="2"
+                 Grid.Column="1"
+                 HorizontalAlignment="Left"
+                 Margin="10,5,10,5"
+                 FontSize="20"
+                 TextAlignment="Left"
+                 BorderBrush="Black"
+                 BorderThickness="1"
+                 TextChanged="resizeTextboxToText"/>
+
+        <TextBlock Name="seasonLabel"
+                   Grid.Row="3"
+                   Grid.Column="0"
+                   HorizontalAlignment="Stretch"
+                   Margin="0,0,10,0"
+                   Text="Season"
+                   FontSize="30"
+                   TextAlignment="Right" />
+
+        <TextBox Name="season"
+                 Grid.Row="3"
+                 Grid.Column="1"
+                 HorizontalAlignment="Left"
+                 Margin="10,5,10,5"
+                 FontSize="20"
+                 TextAlignment="Left"
+                 BorderBrush="Black"
+                 BorderThickness="1"
+                 TextChanged="resizeTextboxToText"/>
+
+        <Button Name="preview"
+                Grid.Row="4"
+                Grid.Column="0"
+                Margin="35,0,0,0"
+                Content="Preview Change"
+                FontSize="16"
+                Click="preview_Click"/>
+
+        <Button Name="convert"
+                Grid.Row="4"
+                Grid.Column="1"
+                Margin="10,0,0,0"
+                Content="Rename"
+                FontSize="16"
+                Click="convert_Click"/>
+
+        <TextBlock Name="feedback"
+                   Grid.Row="5"
+                   Grid.Column="1"
+                   TextAlignment="left"
+                   Foreground="Red"/>
+
+        <Grid Grid.Row="6"
+              Grid.Column="0"
+              Grid.ColumnSpan="2">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Name="before"
+                       Grid.Row="0"
+                       Grid.Column="0"
+                       Margin="0,0,10,0"
+                       TextAlignment="Right"/>
+
+            <TextBlock Name="after"
+                       Grid.Row="0"
+                       Grid.Column="1"
+                       Margin="10,0,0,0"
+                       TextAlignment="Left"/>
+
+        </Grid>
     </Grid>
 </Page>
